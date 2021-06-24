@@ -10,4 +10,21 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="Priority">
+        <item>Urgent</item>
+        <item >High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+    <string-array name="TaskCurrentStatus">
+        <item>Todo</item>
+        <item>InProgress</item>
+        <item>Completed</item>
+    </string-array>
+    <string-array name="TaskFinalState">
+        <item>On Time</item>
+        <item>Early</item>
+        <item>Late</item>
+    </string-array>
 </resources>

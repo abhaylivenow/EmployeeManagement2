@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployeeTaskTable"
+    android:background="#F6592B">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Employee Task Table"
+            android:textColor="@color/white"
+            android:textSize="29sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/form_container_layout"
+                        android:orientation="vertical"
+                        android:padding="5sp">
+
+
+                        <EditText
+                            android:id="@+id/taskProject"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Project : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Id : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign Date : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignByKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign By Key : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignToKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign To Key : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignEmpName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign Employee Name : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignEmpMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign Employee Mobile : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAssignEmpEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Assign Employee Email : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskManagerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Manager Name : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskManagerMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Manager Mobile : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskManagerEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="task Manager Email : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Heading : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Description : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+                            <TextView
+                                android:id="@+id/taskPriority"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Task Priority : "
+                                android:textColor="#121111"
+                                android:textSize="18sp" />
+                            <Spinner
+                                android:id="@+id/taskSpinnerPriority"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/taskExpectedStartDateTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Expected Start Date Time : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskExpectedEndDateTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Expected End Date Time : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskAllotedHours"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Alloted Hours : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+
+                            <TextView
+                                android:id="@+id/taskCurrentStatus"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Task Current Status : "
+                                android:textColor="#121111"
+                                android:textSize="18sp" />
+                            <Spinner
+                                android:id="@+id/taskSpinnerCurrentStatus"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                />
+
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/taskActualStartDateTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Actual Start Date Time : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskActualEndDateTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Actual End Date Time :"
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskHours"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Hours : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/taskLateStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Late Start : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+
+                            <TextView
+                                android:id="@+id/taskFinalState"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Task Final State : "
+                                android:textColor="#121111"
+                                android:textSize="18sp" />
+                            <Spinner
+                                android:id="@+id/taskSpinnerFinalStatus"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+
+
+                        <EditText
+                            android:id="@+id/taskRating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Rating : "
+                            android:textColor="#121111"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+
+
+
+                <Button
+                    android:id="@+id/submitButtonofTaskTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="50dp"
+                    android:background="@drawable/gradient_background_button"
+                    android:text="Submit"
+
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
