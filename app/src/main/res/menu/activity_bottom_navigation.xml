@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/today"
+        android:id="@+id/bottom_action_today"
         android:icon="@android:drawable/ic_menu_today"
         android:title="@string/today" />
     <item
-        android:id="@+id/todo"
+        android:id="@+id/bottom_action_todo"
         android:icon="@drawable/ic_baseline_pending_action"
         android:title="@string/todo" />
     <item
-        android:id="@+id/in_progress"
+        android:id="@+id/bottom_action_in_progress"
         android:icon="@drawable/ic_baseline_bar_chart"
         android:title="@string/inProgress" />
     <item
-        android:id="@+id/completed"
+        android:id="@+id/bottom_action_completed"
         android:icon="@drawable/ic_baseline_done"
         android:title="@string/completed" />
     <item
-        android:id="@+id/overdue"
+        android:id="@+id/bottom_action_overdue"
         android:icon="@android:drawable/ic_dialog_alert"
         android:title="@string/overdue" />
 </menu>

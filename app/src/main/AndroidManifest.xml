@@ -15,7 +15,6 @@
         <activity android:name=".ui.my_account.MyAccountActivity" />
         <activity android:name=".ui.show_all.ShowAllActivity" />
         <activity android:name=".ui.manage_call.ManageCallActivity" />
-        <activity android:name=".ui.Today_task.TodayTaskActivity" />
 
 
         <activity
