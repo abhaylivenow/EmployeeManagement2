@@ -1,52 +1,30 @@
 package com.example.employeemanagement;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.employeemanagement.databinding.ActivityMainBinding;
+import com.example.employeemanagement.ui.Today_task.TodayTaskActivity;
+import com.example.employeemanagement.ui.assign_task.AssignTaskActivity;
+import com.example.employeemanagement.ui.employee_detail.EmployeeDetailActivity;
+import com.example.employeemanagement.ui.employee_task.EmployeeTaskActivity;
+import com.example.employeemanagement.ui.manage_call.ManageCallActivity;
+import com.example.employeemanagement.ui.my_account.MyAccountActivity;
+import com.example.employeemanagement.ui.show_all.ShowAllActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override
@@ -56,10 +34,36 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_manage_call:
+                Intent newManageCallActivity = new Intent(this, ManageCallActivity.class);
+                startActivity(newManageCallActivity);
+                return true;
+            case R.id.action_show_all:
+                Intent newShowAllActivity = new Intent(this, ShowAllActivity.class);
+                startActivity(newShowAllActivity);
+                return true;
+            case R.id.action_my_account:
+                Intent newMyAccountActivity = new Intent(this, MyAccountActivity.class);
+                startActivity(newMyAccountActivity);
+                return true;
+            case R.id.action_assign_task:
+                Intent newAssignTaskActivity = new Intent(this, AssignTaskActivity.class);
+                startActivity(newAssignTaskActivity);
+                return true;
+            case R.id.action_employee_detail:
+                Intent EmployeeDetailActivity = new Intent(this, EmployeeDetailActivity.class);
+                startActivity(EmployeeDetailActivity);
+                return true;
+            case R.id.action_employee_task:
+                Intent newEmployeeTaskActivity = new Intent(this, EmployeeTaskActivity.class);
+                startActivity(newEmployeeTaskActivity);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

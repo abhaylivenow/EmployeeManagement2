@@ -9,10 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EmployeeManagement">
+        <activity android:name=".ui.employee_detail.EmployeeDetailActivity" />
+        <activity android:name=".ui.employee_task.EmployeeTaskActivity" />
+        <activity android:name=".ui.assign_task.AssignTaskActivity" />
+        <activity android:name=".ui.my_account.MyAccountActivity" />
+        <activity android:name=".ui.show_all.ShowAllActivity" />
+        <activity android:name=".ui.manage_call.ManageCallActivity" />
+        <activity android:name=".ui.Today_task.TodayTaskActivity" />
+
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.EmployeeManagement.NoActionBar">
+            android:theme="@style/Theme.EmployeeManagement">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

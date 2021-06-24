@@ -10,4 +10,18 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="menu_manage_call">Manage Call</string>
+    <string name="menu_show_all">Show All</string>
+    <string name="menu_my_account">My Account</string>
+    <string name="menu_assign_task">Assign Task</string>
+    <string name="menu_employee_detail">Employee Detail</string>
+    <string name="menu_employee_task">Employee Task</string>
+
+    <string name="today">Today</string>
+    <string name="todo">Todo</string>
+    <string name="inProgress">Progress</string>
+    <string name="completed">Completed</string>
+    <string name="overdue">Overdue</string>
+    
 </resources>
