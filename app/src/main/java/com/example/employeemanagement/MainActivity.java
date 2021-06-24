@@ -8,23 +8,36 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.example.employeemanagement.ui.Today_task.TodayTaskActivity;
+import com.example.employeemanagement.ui.Today_task.TodayTaskFragment;
+import com.example.employeemanagement.ui.Todo_task.TodoTask;
 import com.example.employeemanagement.ui.assign_task.AssignTaskActivity;
+import com.example.employeemanagement.ui.completed_task.CompletedFragment;
 import com.example.employeemanagement.ui.employee_detail.EmployeeDetailActivity;
 import com.example.employeemanagement.ui.employee_task.EmployeeTaskActivity;
 import com.example.employeemanagement.ui.manage_call.ManageCallActivity;
 import com.example.employeemanagement.ui.my_account.MyAccountActivity;
+import com.example.employeemanagement.ui.overdue_task.OverdueTask;
+import com.example.employeemanagement.ui.progress_chart.ProgressChart;
 import com.example.employeemanagement.ui.show_all.ShowAllActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private BottomNavigationView mBottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
+        setFragment(new TodayTaskFragment());
+        mBottomNavigationView.setOnNavigationItemSelectedListener(listener);
+    }
 
+    private void initView() {
+        mBottomNavigationView = findViewById(R.id.bottom_navigation_container);
     }
 
     @Override
@@ -66,4 +79,33 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
+    @SuppressLint("NonConstantResourceId")
+    private final BottomNavigationView.OnNavigationItemSelectedListener listener = item -> {
+        switch (item.getItemId()) {
+            case R.id.bottom_action_today:
+                setFragment(new TodayTaskFragment());
+                return true;
+            case R.id.bottom_action_completed:
+                setFragment(new CompletedFragment());
+                return true;
+            case R.id.bottom_action_todo:
+                setFragment(new TodoTask());
+                return true;
+            case R.id.bottom_action_in_progress:
+                setFragment(new ProgressChart());
+                return true;
+            case R.id.bottom_action_overdue:
+                setFragment(new OverdueTask());
+                return true;
+            default:
+                return false;
+        }
+    };
+
+    private void setFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    }
+
 }
