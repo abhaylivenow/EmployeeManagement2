@@ -69,7 +69,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Assign Date : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="datetime"/>
 
                         <EditText
                             android:id="@+id/taskAssignByKey"
@@ -87,21 +88,36 @@
                             android:textColor="#121111"
                             android:textSize="18sp" />
 
-                        <EditText
-                            android:id="@+id/taskAssignEmpName"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Task Assign Employee Name : "
-                            android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+                            <TextView
+                                android:id="@+id/taskAssignEmpName"
+                                android:layout_width="0dp"
+                                android:layout_weight="5"
+                                android:layout_height="wrap_content"
+                                android:text="Task Assign Employee Name : "
+                                android:textColor="#121111"
+                                android:textSize="18sp" />
+                            <Spinner
+                                android:id="@+id/taskSpinnerEmpName"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                />
 
+
+                        </LinearLayout>
                         <EditText
                             android:id="@+id/taskAssignEmpMobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Task Assign Employee Mobile : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="number"/>
 
                         <EditText
                             android:id="@+id/taskAssignEmpEmail"
@@ -109,7 +125,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Assign Employee Email : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="textEmailAddress"/>
 
                         <EditText
                             android:id="@+id/taskManagerName"
@@ -125,7 +142,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Manager Mobile : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="phone"/>
 
                         <EditText
                             android:id="@+id/taskManagerEmail"
@@ -133,7 +151,8 @@
                             android:layout_height="wrap_content"
                             android:hint="task Manager Email : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="textEmailAddress"/>
 
                         <EditText
                             android:id="@+id/taskHeading"
@@ -178,7 +197,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Expected Start Date Time : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="datetime"/>
 
                         <EditText
                             android:id="@+id/taskExpectedEndDateTime"
@@ -186,7 +206,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Expected End Date Time : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="datetime"/>
 
                         <EditText
                             android:id="@+id/taskAllotedHours"
@@ -194,7 +215,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Alloted Hours : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="time"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -223,7 +245,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Actual Start Date Time : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="datetime"/>
 
                         <EditText
                             android:id="@+id/taskActualEndDateTime"
@@ -231,7 +254,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Actual End Date Time :"
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="datetime"/>
 
                         <EditText
                             android:id="@+id/taskHours"
@@ -239,7 +263,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Hours : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="time"/>
 
                         <EditText
                             android:id="@+id/taskLateStart"
@@ -278,7 +303,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Task Rating : "
                             android:textColor="#121111"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:inputType="number"/>
                     </LinearLayout>
 
                 </ScrollView>

@@ -1,5 +1,6 @@
 package com.example.employeemanagement;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,18 +14,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private String mPriority,mCurrentStatus,mFinalState;
+    private String mPriority,mCurrentStatus,mFinalState,mEmpName;
     private EditText mtaskProject;
     private EditText mtaskID;
     private EditText mtaskAssignDate;
     private EditText mtaskAssignByKey;
     private EditText mtaskAssignToKey;
 
-    private EditText mtaskAssignEmpName;
+    private TextView mtaskAssignEmpName;
+    private Spinner mtaskSpinnerEmpName;
     private EditText mtaskAssignEmpMobile;
     private EditText mtaskAssignEmpEmail;
 
@@ -53,6 +63,10 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
 
     private Button submitButtonOfTaskTable;
 
+    private Query query;
+    ArrayList<String> employeeList;
+    ArrayAdapter<String> arrayAdapterEmployeeList;
+
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
 
@@ -68,6 +82,7 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
         mtaskAssignToKey=findViewById(R.id.taskAssignToKey);
 
         mtaskAssignEmpName=findViewById(R.id.taskAssignEmpName);
+        mtaskSpinnerEmpName=findViewById(R.id.taskSpinnerEmpName);
         mtaskAssignEmpMobile=findViewById(R.id.taskAssignEmpMobile);
         mtaskAssignEmpEmail=findViewById(R.id.taskAssignEmpEmail);
 
@@ -99,6 +114,7 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
         // Spinner click listener
         mtaskSpinnerPriority.setOnItemSelectedListener(this);
         mtaskSpinnerCurrentStatus.setOnItemSelectedListener(this);
+        mtaskSpinnerEmpName.setOnItemSelectedListener(this);
         mtaskSpinnerFinalState.setOnItemSelectedListener(this);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -133,6 +149,32 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
         // Apply the adapter to the spinner
         mtaskSpinnerFinalState.setAdapter(finalState);
 
+        // Array for employees
+        query=FirebaseDatabase.getInstance().getReference("employees");
+        employeeList= new ArrayList<>();
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for(DataSnapshot employee : snapshot.getChildren()){
+                    Employee employee1 =employee.getValue(Employee.class);
+                    employeeList.add(employee1.getName());
+                    arrayAdapterEmployeeList.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+        arrayAdapterEmployeeList=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,
+                employeeList);
+
+        // Specify the layout to use when the list of choices appears
+        arrayAdapterEmployeeList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        mtaskSpinnerEmpName.setAdapter(arrayAdapterEmployeeList);
+
 
 
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -146,7 +188,7 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
             public void onClick(View v) {
                 EmployeeTaskTableClass employeeTaskTable=new EmployeeTaskTableClass(mtaskProject.getText().toString(),
                         mtaskID.getText().toString(), mtaskAssignDate.getText().toString(),mtaskAssignByKey.getText().toString(),
-                        mtaskAssignToKey.getText().toString(),mtaskAssignEmpName.getText().toString(),mtaskAssignEmpMobile.getText().toString(),
+                        mtaskAssignToKey.getText().toString(),mEmpName,mtaskAssignEmpMobile.getText().toString(),
                         mtaskAssignEmpEmail.getText().toString(),mtaskManagerName.getText().toString(),mtaskManagerMobile.getText().toString(),
                         mtaskManagerEmail.getText().toString(),mtaskHeading.getText().toString(),mtaskDescription.getText().toString(),mPriority,
                         mtaskExpectedStartDateTime.getText().toString(),mtaskExpectedEndDateTime.getText().toString(),mtaskAllottedHours.getText().toString(),
@@ -179,6 +221,35 @@ public class EmployeeTaskTable extends AppCompatActivity implements AdapterView.
 
             case R.id.taskSpinnerFinalStatus:
                 mFinalState=item;
+                break;
+            case R.id.taskSpinnerEmpName:
+                 mEmpName = item;
+                Query query=FirebaseDatabase.getInstance().getReference("employees");
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot employee:snapshot.getChildren()){
+
+                            Employee employeeDetail =employee.getValue(Employee.class);
+
+                            if (employeeDetail.getName().equals(item)){
+                                toast(employeeDetail.getEmail());
+                                mtaskAssignEmpMobile.setText(employeeDetail.getEmail());
+                                mtaskAssignEmpEmail.setText(employeeDetail.getMobile());
+                                break;
+
+                            }
+                            arrayAdapterEmployeeList.notifyDataSetChanged();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
                 break;
 
             default:toast("Something Else");
